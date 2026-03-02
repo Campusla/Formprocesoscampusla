@@ -104,7 +104,7 @@
                     <label>🧾 Adjuntar Comprobante de Pago</label>
                     <input type="file" name="Comprobante_Pago" accept="image/*" capture="environment" required>
                 </div>
-                <button type="submit" class="btn-submit">FINALIZAR Y ENVIAR AL CORREO</button>
+                <button type="submit" class="btn-submit">FINALIZAR Y ENVIAR</button>
             </section>
         </form>
 
@@ -113,9 +113,9 @@
 
     <script>
         document.getElementById('formFinal').onsubmit = function() {
-            const nombre = document.getElementById('nom_est').value;
-            const mailto = "mailto:eatramites1@gmail.com?subject=" + encodeURIComponent("Radicación Oficial - " + nombre) + "&body=" + encodeURIComponent("Hola,\n\nAdjunto documentos firmados, cédula, selfie carné y comprobante de pago para mi proceso en CampusLA.\n\nNombre del Estudiante: " + nombre);
-            setTimeout(function() { window.location.href = mailto; }, 800);
+            // No hacemos nada con window.location.href mailto para evitar la fricción.
+            // FormSubmit se encarga de enviar y redirigir a la web de CampusLA.
+            return true; 
         };
     </script>
 </body>
