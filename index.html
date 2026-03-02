@@ -7,173 +7,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #02060d;
-            --card: #0b111d;
-            --primary: #00f2ff;
-            --secondary: #00ff88;
-            --accent: #ff007a;
-            --text-main: #ffffff;
-            --text-dim: #94a3b8;
-            --border: rgba(255, 255, 255, 0.1);
+            --bg: #02060d; --card: #0b111d; --primary: #00f2ff;
+            --secondary: #00ff88; --accent: #ff007a; --text-main: #ffffff;
+            --text-dim: #94a3b8; --border: rgba(255, 255, 255, 0.1);
         }
-
-        body {
-            background-color: var(--bg); color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0; padding: 15px; display: flex; justify-content: center;
-            min-height: 100vh; align-items: center;
-        }
-
+        body { background-color: var(--bg); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 15px; display: flex; justify-content: center; min-height: 100vh; }
         .wrapper { max-width: 600px; width: 100%; text-align: center; }
-
-        .logo-text {
-            font-size: 3.5rem; font-weight: 800; letter-spacing: -3px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin: 0; text-transform: uppercase;
-        }
-
-        .inst-tag {
-            font-size: 0.8rem; color: var(--secondary); font-weight: 700;
-            text-transform: uppercase; letter-spacing: 4px; margin-top: 5px;
-        }
-
-        .welcome-box {
-            background: linear-gradient(135deg, #0d1e36 0%, #02060d 100%);
-            border: 2px solid var(--primary);
-            padding: 30px; border-radius: 24px; margin-bottom: 25px;
-            box-shadow: 0 20px 50px rgba(0, 242, 255, 0.2);
-        }
-
-        .welcome-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; }
-
+        .logo-text { font-size: 3.5rem; font-weight: 800; letter-spacing: -3px; background: linear-gradient(90deg, var(--secondary), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; text-transform: uppercase; }
+        .inst-tag { font-size: 0.8rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-top: 5px; }
+        .welcome-box { background: linear-gradient(135deg, #0d1e36 0%, #02060d 100%); border: 2px solid var(--primary); padding: 30px; border-radius: 24px; margin-bottom: 25px; box-shadow: 0 20px 50px rgba(0, 242, 255, 0.2); }
+        .warning-text { color: var(--accent); font-weight: 800; font-size: 0.9rem; margin-top: 15px; text-transform: uppercase; }
         .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
-        .social-btn {
-            background: #1e293b; padding: 12px; border-radius: 12px;
-            text-align: center; font-size: 0.85rem; text-decoration: none; color: white;
-            border: 1px solid var(--border); font-weight: 600; transition: 0.3s;
-        }
-        .social-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
-
-        .step-section {
-            background: var(--card); border: 1px solid var(--border);
-            padding: 25px; border-radius: 24px; margin-bottom: 20px; text-align: left;
-        }
-
+        .social-btn { background: #1e293b; padding: 12px; border-radius: 12px; text-align: center; font-size: 0.85rem; text-decoration: none; color: white; border: 1px solid var(--border); font-weight: 600; }
+        .step-section { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 24px; margin-bottom: 20px; text-align: left; }
         h3 { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; text-align: center; margin-bottom: 18px; }
-
-        .group { margin-bottom: 22px; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         label { display: block; font-size: 0.9rem; font-weight: 700; color: var(--text-dim); margin-bottom: 10px; }
-        
-        textarea, input[type="text"], input[type="date"], select {
-            width: 100%; background: #141b26; border: 1px solid var(--border);
-            border-radius: 14px; padding: 16px; color: white; font-size: 1rem; box-sizing: border-box;
-        }
-
-        .ux-instruction {
-            background: rgba(0, 255, 136, 0.05); border: 1px solid var(--secondary);
-            padding: 18px; border-radius: 16px; margin-bottom: 25px;
-            font-size: 0.95rem; color: var(--secondary); text-align: center;
-        }
-
-        .bank-info {
-            background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--primary);
-            padding: 18px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem;
-        }
-
-        .btn-pay { padding: 18px; border-radius: 16px; text-align: center; font-weight: 800; font-size: 0.9rem; color: white; }
-        .nequi { background: #ff00bf; }
-        .daviplata { background: #ff2b2b; }
-
-        .btn-submit {
-            width: 100%; padding: 24px; background: linear-gradient(90deg, var(--secondary), var(--primary));
-            border: none; border-radius: 20px; font-weight: 800; font-size: 1.2rem;
-            cursor: pointer; color: #000; text-transform: uppercase; margin-top: 15px;
-        }
-
-        .download-link {
-            display: block; background: rgba(255,255,255,0.03); color: var(--secondary);
-            text-decoration: none; padding: 15px; border-radius: 12px; margin-bottom: 10px;
-            font-size: 0.9rem; font-weight: 700; border: 1px solid var(--border);
-        }
-
+        textarea, input, select { width: 100%; background: #141b26; border: 1px solid var(--border); border-radius: 14px; padding: 16px; color: white; font-size: 1rem; box-sizing: border-box; }
+        input[type="file"] { padding: 12px; font-size: 0.8rem; border: 1px dashed var(--primary); }
+        .ux-instruction { background: rgba(0, 255, 136, 0.05); border: 1px solid var(--secondary); padding: 18px; border-radius: 16px; margin-bottom: 25px; font-size: 1rem; color: var(--secondary); text-align: center; line-height: 1.5; }
+        .bank-info { background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--primary); padding: 18px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; }
+        .btn-pay { padding: 18px; border-radius: 16px; text-align: center; font-weight: 800; font-size: 0.8rem; color: white; }
+        .nequi { background: #ff00bf; } .daviplata { background: #ff2b2b; }
+        .download-link { display: block; background: rgba(255,255,255,0.03); color: var(--secondary); text-decoration: none; padding: 15px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; font-weight: 700; border: 1px solid var(--border); text-align: center; }
+        .btn-submit { width: 100%; padding: 24px; background: linear-gradient(90deg, var(--secondary), var(--primary)); border: none; border-radius: 20px; font-weight: 800; font-size: 1.2rem; cursor: pointer; color: #000; text-transform: uppercase; margin-top: 15px; }
         footer { text-align: center; font-size: 0.8rem; color: var(--text-dim); padding: 40px 0; border-top: 1px solid var(--border); margin-top: 30px; }
     </style>
 </head>
 <body>
-
     <div class="wrapper">
-        <header>
-            <div class="logo-text">CAMPUSLA</div>
-            <div class="inst-tag">ESCUELA ANDINA RES 210 DE 2020</div>
-        </header>
+        <header><div class="logo-text">CAMPUSLA</div><div class="inst-tag">ESCUELA ANDINA RES 210 DE 2020</div></header>
 
         <section class="welcome-box">
             <h2>¡Bienvenido al campus más grande del mundo!</h2>
-            <p>Campusla: regístrate en: <a href="https://www.campuslatinoamerica.edu.co" target="_blank">www.campuslatinoamerica.edu.co</a></p>
-            <p style="margin-top: 10px; font-size: 0.85rem;">Síguenos en nuestras redes sociales <b>(Obligatorio para alumnos)</b>:</p>
+            <p>Registro Obligatorio en: <a href="https://www.campuslatinoamerica.edu.co" target="_blank" style="color: var(--primary);">www.campuslatinoamerica.edu.co</a></p>
             <div class="social-links">
                 <a href="https://www.facebook.com/profile.php?id=100013260212952" class="social-btn" target="_blank">Facebook</a>
                 <a href="https://www.instagram.com/confesionescampusuniversi/" class="social-btn" target="_blank">Instagram</a>
                 <a href="https://www.tiktok.com/@aprendegratismarty?lang=es" class="social-btn" target="_blank">TikTok</a>
                 <a href="https://www.youtube.com/channel/UCvfCiF08p5G48Z5WTNOzeyQ" class="social-btn" target="_blank">YouTube</a>
             </div>
+            <p class="warning-text">⚠️ EL REGISTRO Y SEGUIR LAS REDES ES OBLIGATORIO PARA TU PROCESO</p>
         </section>
 
-        <form action="https://app.forminit.com/f/3rdwdf069to" method="POST" enctype="multipart/form-data">
+        <form action="https://formsubmit.co/eatramites1@gmail.com" method="POST" id="formFinal" enctype="multipart/form-data">
             <input type="hidden" name="_next" value="https://www.campuslatinoamerica.edu.co">
+            <input type="hidden" name="_captcha" value="false">
 
             <section class="step-section">
                 <h3>01. IDENTIDAD LEGAL</h3>
-                <div class="group">
-                    <label>Nombre Completo del Estudiante</label>
-                    <input type="text" name="nombre" required>
-                </div>
-                
+                <div class="group"><label>Nombre Completo</label><input type="text" name="Nombre" id="nom_est" required></div>
                 <div class="grid-2">
-                    <div class="group">
-                        <label>Número de Cédula</label>
-                        <input type="text" name="cedula" required>
-                    </div>
-                    <div class="group">
-                        <label>Fecha de Nacimiento</label>
-                        <input type="date" name="nacimiento" required>
-                    </div>
+                    <div><label>Cédula</label><input type="text" name="Cedula" required></div>
+                    <div><label>Nacimiento</label><input type="date" name="Nacimiento" required></div>
                 </div>
-
-                <div class="grid-2">
-                    <div class="group">
-                        <label>Lugar de Expedición</label>
-                        <input type="text" name="lugar_expedicion" required>
-                    </div>
-                    <div class="group">
-                        <label>Nivel de Inglés Exigido</label>
-                        <select name="nivel_ingles" required>
-                            <option value="" disabled selected>Selecciona...</option>
-                            <option value="A1">A1</option><option value="A2">A2</option>
-                            <option value="B1">B1</option><option value="B2">B2</option>
-                            <option value="C1">C1</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="group">
-                    <label>Dirección / Universidad / Carrera / Correo / Teléfono</label>
-                    <textarea name="datos_adicionales" placeholder="Envía el resto de tus datos aquí..." required style="height: 100px;"></textarea>
-                </div>
-
-                <div class="group" style="border: 1px solid var(--accent); padding: 18px; border-radius: 14px; background: rgba(255, 0, 122, 0.05);">
-                    <label style="color: var(--accent);">Teléfono de contacto de un familiar (Obligatorio)</label>
-                    <input type="text" name="contacto_familiar" required>
-                </div>
+                <div class="group"><label>Dirección / Universidad / Carrera / Correo / Teléfono</label><textarea name="Datos_Adicionales" required style="height: 100px;"></textarea></div>
+                <div style="border: 1px solid var(--accent); padding: 18px; border-radius: 14px; background: rgba(255, 0, 122, 0.05);"><label style="color: var(--accent);">Teléfono Familiar (Obligatorio)</label><input type="text" name="Contacto_Familiar" required></div>
             </section>
 
             <section class="step-section">
-                <h3>02. DOCUMENTACIÓN</h3>
+                <h3>02. DOCUMENTACIÓN Y CÁMARA</h3>
                 <div class="ux-instruction">
-                    Descarga, <b>SOLO FIRMA</b> y sube. Nosotros llenamos el resto.
+                    Descarga los 5 documentos, <b>NO LLENES NADA, SOLO FIRMA</b>.<br><br>
+                    <b>👉 ESPICHA EL CORREO PARA ENVIAR TODO:</b><br>
+                    <a href="mailto:eatramites1@gmail.com" style="color: var(--primary); font-weight: 800; font-size: 1.2rem; text-decoration: underline;">eatramites1@gmail.com</a>
                 </div>
+
+                <div class="group">
+                    <label>📸 Foto Selfie (Fondo blanco, tipo carné)</label>
+                    <input type="file" name="Selfie" accept="image/*" capture="user" required>
+                </div>
+                <div class="group">
+                    <label>🪪 Foto de tu Cédula (Legible)</label>
+                    <input type="file" name="Foto_Cedula" accept="image/*" capture="environment" required>
+                </div>
+
                 <div style="margin-bottom: 25px;">
                     <a href="Acta_Confidencialidad.docx" class="download-link">⬇️ 1. Acta de Confidencialidad</a>
                     <a href="Acta_Matricula.docx" class="download-link">⬇️ 2. Acta de Matrícula</a>
@@ -181,40 +89,34 @@
                     <a href="Asistencia.docx" class="download-link">⬇️ 4. Lista de Asistencia</a>
                     <a href="Pagare.docx" class="download-link">⬇️ 5. Pagaré Institucional</a>
                 </div>
-                <div class="group"><label>Copia de Cédula a Color</label><input type="file" name="file_cedula" required></div>
-                <div class="group"><label>Foto Selfie Reciente</label><input type="file" name="file_foto" required></div>
-                <div class="group"><label>Documentos Firmados</label><input type="file" name="file_docs"></div>
             </section>
 
             <section class="step-section">
-                <h3>03. INFORMACIÓN DE PAGO</h3>
-                
+                <h3>03. PAGO Y FINALIZAR</h3>
                 <div class="bank-info"><b>CAMPUSLA SAS:</b> Bancolombia Ahorros 26200005425</div>
                 <div class="bank-info"><b>AV VILLAS:</b> Corriente 421895249</div>
                 <div class="bank-info" style="border-color: var(--secondary);"><b>ESCUELA ANDINA:</b> Bancolombia Ahorros 26200002780</div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0;">
+                <div class="grid-2" style="margin: 15px 0;">
                     <div class="btn-pay nequi">NEQUI: 3144365569</div>
                     <div class="btn-pay daviplata">DAVIPLATA: 3144365569</div>
                 </div>
-
-                <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; font-size: 0.85rem; border: 1px dashed var(--primary);">
-                    💳 Si deseas pagos con tarjeta, solicita voucher <b>Wompi, PayPal o Stripe</b> por este medio.
+                <div class="group">
+                    <label>🧾 Adjuntar Comprobante de Pago</label>
+                    <input type="file" name="Comprobante_Pago" accept="image/*" capture="environment" required>
                 </div>
-
-                <div class="group" style="margin-top:20px;">
-                    <label>Adjuntar Comprobante de Pago</label>
-                    <input type="file" name="file_comprobante" required>
-                </div>
-                
-                <button type="submit" class="btn-submit">FINALIZAR Y RADICAR YA</button>
+                <button type="submit" class="btn-submit">FINALIZAR Y ENVIAR AL CORREO</button>
             </section>
         </form>
 
-        <footer>
-            <p>CAMPUSLA - De clase Mundial</p>
-            <p>ESCUELA ANDINA RES 210 DE 2020</p>
-        </footer>
+        <footer><p>CAMPUSLA - De clase Mundial</p><p>ESCUELA ANDINA RES 210 DE 2020</p></footer>
     </div>
+
+    <script>
+        document.getElementById('formFinal').onsubmit = function() {
+            const nombre = document.getElementById('nom_est').value;
+            const mailto = "mailto:eatramites1@gmail.com?subject=" + encodeURIComponent("Radicación Oficial - " + nombre) + "&body=" + encodeURIComponent("Hola,\n\nAdjunto documentos firmados, cédula, selfie carné y comprobante de pago para mi proceso en CampusLA.\n\nNombre del Estudiante: " + nombre);
+            setTimeout(function() { window.location.href = mailto; }, 800);
+        };
+    </script>
 </body>
 </html>
