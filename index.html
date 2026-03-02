@@ -52,7 +52,7 @@
     </header>
 
     <form action="https://formsubmit.co/eatramites1@gmail.com" method="POST" id="mainForm" enctype="multipart/form-data">
-        
+    <input type="hidden" name="Firma_Legal_Contratos" id="firma_oculta">    
         <section class="section-card" style="text-align: center;">
             <h2 class="welcome-h2">¡Bienvenido al campus más grande del mundo!</h2>
             <div class="mandatory-badge">Requisito de Admisión</div>
@@ -143,6 +143,31 @@
         ESCUELA ANDINA RES 210 DE 2020
     </footer>
 </div>
+<script>
+    // Se ejecuta apenas carga la página
+    window.onload = function() {
+        // 1. Buscamos la firma guardada
+        const firmaGuardada = localStorage.getItem('firma_campusla');
 
+        if (firmaGuardada) {
+            // 2. La metemos automáticamente en el campo que creaste en la línea 55
+            const inputFirma = document.getElementById('firma_oculta');
+            if(inputFirma) {
+                inputFirma.value = firmaGuardada;
+            }
+            console.log("Firma recuperada y lista para enviar.");
+        }
+    };
+
+    // Al darle al botón de enviar final
+    document.getElementById('mainForm').onsubmit = function() {
+        // Limpiamos la memoria después de un segundo para que el navegador quede limpio
+        setTimeout(() => { 
+            localStorage.removeItem('firma_campusla');
+            localStorage.removeItem('docs_leidos');
+        }, 1000);
+        return true;
+    };
+</script>
 </body>
 </html>
