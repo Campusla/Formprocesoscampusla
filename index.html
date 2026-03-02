@@ -83,6 +83,18 @@
                 <div class="full-width"><label>Universidad / Institución de procedencia</label><input type="text" name="Universidad"></div>
                 <div><label>Carrera / Programa</label><input type="text" name="Carrera"></div>
                 <div><label>Lugar de Trabajo</label><input type="text" name="Trabajo"></div>
+                <div style="margin-bottom: 15px;">
+    <label style="display: block; font-weight: bold; margin-bottom: 5px;">Fecha de Nacimiento</label>
+    <input type="date" 
+           name="Fecha_Nacimiento" 
+           id="inputFecha" 
+           min="1980-01-01" 
+           max="2010-12-31" 
+           value="2000-01-01"
+           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" 
+           required>
+    <small style="color: #666;">Selecciona tu año de nacimiento (Rango optimizado)</small>
+</div>
                 
                 <div class="full-width">
                     <label>Nivel de Inglés Exigido</label>
@@ -144,39 +156,39 @@
     </footer>
 </div>
 <script>
-// 1. Esta función guarda el nombre, CC y contacto antes de ir a firmar
+// 1. Guarda los textos antes de saltar a la página de firma
 function guardarYFirma() {
     const datos = {
         nombre: document.getElementById('inputNombre').value,
         cedula: document.getElementById('inputCC').value,
-        contacto: document.getElementById('inputContacto').value
+        contacto: document.getElementById('inputContacto').value,
+        fecha: document.getElementById('inputFecha').value // <-- AGREGAMOS LA FECHA
     };
-    // Guardamos en el bolsillo del navegador
     localStorage.setItem('datos_campusla', JSON.stringify(datos));
-    // Mandamos a la página de firma
     window.location.href = "contratosdeprestacióndeserviciosdigitales.html";
 }
 
-// 2. Esta función se activa sola al volver de firmar
+// 2. Recupera TODO al volver de firmar
 window.onload = function() {
-    // Recupera la firma
+    // Recupera la firma legal
     const firma = localStorage.getItem('firma_campusla');
     if (firma) {
         const inputFirma = document.getElementById('firma_oculta');
         if(inputFirma) inputFirma.value = firma;
     }
 
-    // ¡MAGIA! Recupera los textos para que el man NO los vuelva a llenar
+    // ¡MAGIA! Recupera los textos (incluida la fecha)
     const dGuardados = localStorage.getItem('datos_campusla');
     if (dGuardados) {
         const d = JSON.parse(dGuardados);
         if(d.nombre) document.getElementById('inputNombre').value = d.nombre;
         if(d.cedula) document.getElementById('inputCC').value = d.cedula;
         if(d.contacto) document.getElementById('inputContacto').value = d.contacto;
+        if(d.fecha) document.getElementById('inputFecha').value = d.fecha; // <-- AQUÍ VUELVE LA FECHA
     }
 };
 
-// 3. Limpia la memoria al finalizar el envío
+// 3. Limpia la memoria al finalizar el envío final
 document.getElementById('mainForm').onsubmit = function() {
     setTimeout(() => { 
         localStorage.removeItem('datos_campusla');
