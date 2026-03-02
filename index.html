@@ -195,13 +195,28 @@ window.onload = function() {
         if(d.fecha) document.getElementById('inputFecha').value = d.fecha; // <-- AQUÍ VUELVE LA FECHA
     }
 };
-
-// 3. Procesa y envía el formulario con compresión Turbo 🚀
+// 3. Procesa y envía con Compresión Turbo y Firma Nítida 🚀
     document.getElementById('mainForm').onsubmit = async function(e) {
         e.preventDefault();
         const form = this;
-        
-        // Función para bajarle el peso a las fotos y que el cell no se pegue
+        const btn = document.querySelector('button[type="submit"]');
+        if(btn) btn.innerText = "Finalizando... ⏳";
+
+        // --- A. PROCESAR FIRMA (PNG original para evitar el fondo negro) ---
+        const dataFirma = localStorage.getItem('firma_campusla');
+        if (dataFirma) {
+            try {
+                const res = await fetch(dataFirma);
+                const blob = await res.blob();
+                // La mandamos como PNG para que mantenga su fondo correcto
+                const file = new File([blob], "firma.png", { type: "image/png" });
+                const dt = new DataTransfer();
+                dt.items.add(file);
+                document.getElementById('inputFirmaOculto').files = dt.files;
+            } catch (err) { console.error("Error firma:", err); }
+        }
+
+        // --- B. FUNCIÓN TURBO (Solo para Cédula y Foto que son las pesadas) ---
         const procesarFoto = async (key, id, fileName) => {
             const data = localStorage.getItem(key);
             if (!data || !data.startsWith('data:image')) return;
@@ -211,42 +226,49 @@ window.onload = function() {
                 img.src = data;
                 img.onload = () => {
                     const canvas = document.createElement('canvas');
-                    const MAX_WIDTH = 1200; // Tamaño ideal para que se vea nítido pero ligero
-                    let width = img.width;
-                    let height = img.height;
-
-                    if (width > MAX_WIDTH) {
-                        height *= MAX_WIDTH / width;
-                        width = MAX_WIDTH;
-                    }
-
-                    canvas.width = width;
-                    canvas.height = height;
+                    const MAX_WIDTH = 1200;
+                    let width = img.width; let height = img.height;
+                    if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
+                    canvas.width = width; canvas.height = height;
                     const ctx = canvas.getContext('2d');
+                    
+                    // Fondo blanco obligatorio para evitar cuadros negros en el JPG
+                    ctx.fillStyle = "white"; 
+                    ctx.fillRect(0, 0, width, height);
                     ctx.drawImage(img, 0, 0, width, height);
-
+                    
                     canvas.toBlob((blob) => {
                         const file = new File([blob], fileName, { type: "image/jpeg" });
                         const dt = new DataTransfer();
                         dt.items.add(file);
                         document.getElementById(id).files = dt.files;
                         resolve();
-                    }, 'image/jpeg', 0.7); // 70% de calidad = Envío instantáneo
+                    }, 'image/jpeg', 0.7);
                 };
             });
         };
 
-        // Procesamos los 3 archivos en paralelo
-        await Promise.all([
-            procesarFoto('firma_campusla', 'inputFirmaOculto', 'firma.jpg'),
-            procesarFoto('cedula_frontal', 'inputCedulaOculto', 'cedula.jpg'),
-            procesarFoto('foto_perfil', 'inputFotoOculto', 'selfie.jpg')
-        ]);
+       // --- C. EJECUTAR ENVÍO ---
+    // 1. La firma se queda como PNG ORIGINAL (Para que no salga negra)
+    const dataFirma = localStorage.getItem('firma_campusla');
+    if (dataFirma) {
+        const res = await fetch(dataFirma);
+        const blob = await res.blob();
+        const file = new File([blob], "firma.png", { type: "image/png" });
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        document.getElementById('inputFirmaOculto').files = dt.files;
+    }
 
-        alert("¡EUREKA! 🎓\nTu radicación completa ha sido enviada con éxito.");
+    // 2. Las fotos pesadas sí van con TURBO (Compresión)
+    await Promise.all([
+        procesarFoto('cedula_frontal', 'inputCedulaOculto', 'cedula.jpg'),
+        procesarFoto('foto_perfil', 'inputFotoOculto', 'selfie.jpg')
+    ]);
 
-        localStorage.clear();
-        form.submit();
+    alert("¡EUREKA DEFINITIVO! 🎓\nFirma y documentos procesados correctamente.");
+    localStorage.clear();
+    form.submit();
     };
 </script>
 </body>
