@@ -54,13 +54,13 @@
         }
 
         .ux-alert {
-            background: rgba(0, 242, 255, 0.05);
-            border: 1px solid var(--primary);
+            background: rgba(255, 0, 122, 0.05);
+            border: 1px solid var(--accent);
             padding: 15px;
             border-radius: 16px;
             margin-bottom: 20px;
             font-size: 0.85rem;
-            color: var(--primary);
+            color: #ff99cc;
             line-height: 1.4;
         }
 
@@ -69,7 +69,7 @@
         .group { margin-bottom: 22px; }
         label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-dim); margin-bottom: 10px; }
         
-        textarea, input[type="text"] {
+        textarea, input[type="text"], select {
             width: 100%;
             background: #141b26;
             border: 1px solid var(--border);
@@ -79,6 +79,14 @@
             font-size: 0.95rem;
             box-sizing: border-box;
             transition: 0.3s ease;
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300f2ff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 18px;
         }
 
         .pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
@@ -98,8 +106,6 @@
             justify-content: center;
             gap: 5px;
         }
-
-        .btn-pay span { font-size: 0.65rem; opacity: 0.8; font-weight: 400; }
 
         .nequi { background: linear-gradient(135deg, #4b0082 0%, var(--nequi) 100%); }
         .daviplata { background: linear-gradient(135deg, #b22222 0%, var(--daviplata) 100%); }
@@ -139,7 +145,6 @@
             cursor: pointer;
             color: #000;
             text-transform: uppercase;
-            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.25);
         }
 
         .bank-card { background: rgba(255,255,255,0.02); padding: 15px; border-radius: 14px; border-left: 4px solid var(--secondary); font-size: 0.8rem; margin-bottom: 10px; }
@@ -158,7 +163,7 @@
         <section class="welcome-box">
             <h2>¡BIENVENIDO AL CAMPUS MÁS GRANDE DEL MUNDO!</h2>
             <p>DE CLASE MUNDIAL</p>
-            <a href="https://www.campuslatinoamerica.edu.co" target="_blank" style="color: var(--primary); font-weight: 800; text-decoration: none;">www.campuslatinoamerica.edu.co</a>
+            <a href="https://www.campuslatinoamerica.edu.co" target="_blank" style="color: var(--primary); font-weight: 800; text-decoration: none; word-break: break-all;">www.campuslatinoamerica.edu.co</a>
         </section>
 
         <form action="https://app.forminit.com/f/3rdwdf069to" method="POST" enctype="multipart/form-data">
@@ -167,26 +172,45 @@
                 <h3>01. IDENTIDAD Y PERFIL PROFESIONAL</h3>
                 <div class="group">
                     <label>Nombre Completo del Estudiante</label>
-                    <input type="text" name="nombre_completo" required>
+                    <input type="text" name="nombre_estudiante" required>
                 </div>
                 <div class="group">
-                    <label>Bloque de Datos Maestro (Cédula, Univ, Ciudad, Empresa, Inglés)</label>
-                    <textarea name="datos_maestros" required style="height: 150px;"></textarea>
+                    <label>Dirección de Residencia Completa</label>
+                    <input type="text" name="direccion_residencia" placeholder="Barrio, Conjunto, Apto..." required>
                 </div>
                 <div class="group">
-                    <label>Contacto Familiar Directo</label>
-                    <input type="text" name="emergencia_contacto" required>
+                    <label>Nivel de Inglés Exigido</label>
+                    <select name="nivel_ingles" required>
+                        <option value="" disabled selected>Selecciona el nivel...</option>
+                        <option value="A1">A1 - Principiante</option>
+                        <option value="A2">A2 - Elemental</option>
+                        <option value="B1">B1 - Pre-intermedio</option>
+                        <option value="B2">B2 - Intermedio Alto</option>
+                        <option value="C1">C1 - Avanzado</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label>Bloque de Datos Maestro (Cédula, Universidad, Ciudad, Empresa)</label>
+                    <textarea name="datos_maestros" required style="height: 100px;"></textarea>
                 </div>
             </section>
 
             <section class="step-section">
                 <h3>02. DOCUMENTACIÓN ÉLITE</h3>
                 <div class="ux-alert">
-                    Carga tus archivos PDF o fotos. No te preocupes por el peso, nuestro sistema lo procesa.
+                    <strong>📢 PASO 1:</strong> Descarga estos 5 archivos, <b>SOLO FIRMALOS</b>. No los llenes, nosotros lo hacemos por ti.
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <a href="Acta de confidencialidad para estudiantes docentes directivos y particulares Escuela Andina Colombia res 210 de 2020.docx" class="download-link">⬇️ 1. Acta de Confidencialidad</a>
+                    <a href="Acta de matrícula Escuela Andina 2020..docx" class="download-link">⬇️ 2. Acta de Matrícula</a>
+                    <a href="CONTRATO PARA LA PRESTACION DE SERVICIOS EDUCATIVOS 2020 ASPIRANTE (“CampusLA”). PROGRAMA AUPAIR.docx" class="download-link">⬇️ 3. Contrato de Servicios</a>
+                    <a href="Lista de asistencia a clases.docx" class="download-link">⬇️ 4. Lista de Asistencia</a>
+                    <a href="Pagare escuela andina - campus 2026.docx" class="download-link">⬇️ 5. Pagaré Institucional</a>
                 </div>
 
                 <div class="group">
-                    <label>Subir Cédula (Color)</label>
+                    <label>Subir Cédula a Color (PDF/Imagen)</label>
                     <input type="file" name="doc_cedula" required>
                 </div>
                 <div class="group">
@@ -194,26 +218,22 @@
                     <input type="file" name="doc_selfie" required>
                 </div>
                 <div class="group">
-                    <label>Subir los 5 Documentos Firmados</label>
+                    <label>Cargar los 5 Documentos Firmados (PDF/Imagen)</label>
                     <input type="file" name="doc_tramites">
                 </div>
             </section>
 
             <section class="step-section">
                 <h3>03. PAGO Y RADICACIÓN</h3>
-                
                 <div class="bank-card"><strong>BANCOLOMBIA</strong><br>CampusLA SAS: 26200005425</div>
-
                 <div class="pay-grid">
                     <a href="https://www.nequi.com.co" target="_blank" class="btn-pay nequi">NEQUI<span>3144365569</span></a>
                     <a href="https://www.daviplata.com" target="_blank" class="btn-pay daviplata">DAVIPLATA<span>3144365569</span></a>
                 </div>
-
                 <div class="group">
                     <label>Adjuntar Comprobante de Pago</label>
                     <input type="file" name="doc_pago" required>
                 </div>
-                
                 <button type="submit" class="btn-submit">FINALIZAR RADICACIÓN YA</button>
             </section>
         </form>
