@@ -23,13 +23,13 @@
         h3 { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; text-align: center; margin-bottom: 18px; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         label { display: block; font-size: 0.9rem; font-weight: 700; color: var(--text-dim); margin-bottom: 10px; }
-        textarea, input, select { width: 100%; background: #141b26; border: 1px solid var(--border); border-radius: 14px; padding: 16px; color: white; font-size: 1rem; box-sizing: border-box; }
-        input[type="file"] { padding: 12px; font-size: 0.8rem; border: 1px dashed var(--primary); }
-        .ux-instruction { background: rgba(0, 255, 136, 0.05); border: 1px solid var(--secondary); padding: 18px; border-radius: 16px; margin-bottom: 25px; font-size: 1rem; color: var(--secondary); text-align: center; line-height: 1.5; }
+        textarea, input { width: 100%; background: #141b26; border: 1px solid var(--border); border-radius: 14px; padding: 16px; color: white; font-size: 1rem; box-sizing: border-box; }
+        input[type="file"] { padding: 12px; font-size: 0.8rem; border: 1px dashed var(--primary); cursor: pointer; }
+        .important-note { background: rgba(255, 0, 122, 0.1); border: 2px solid var(--accent); padding: 15px; border-radius: 14px; color: var(--accent); font-weight: 800; text-align: center; margin: 15px 0; text-transform: uppercase; font-size: 0.9rem; }
         .bank-info { background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--primary); padding: 18px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; }
         .btn-pay { padding: 18px; border-radius: 16px; text-align: center; font-weight: 800; font-size: 0.8rem; color: white; }
         .nequi { background: #ff00bf; } .daviplata { background: #ff2b2b; }
-        .download-link { display: block; background: rgba(255,255,255,0.03); color: var(--secondary); text-decoration: none; padding: 15px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; font-weight: 700; border: 1px solid var(--border); text-align: center; }
+        .download-link { display: block; background: rgba(255,255,255,0.03); color: var(--secondary); text-decoration: none; padding: 15px; border-radius: 12px; margin-bottom: 10px; font-size: 0.8rem; font-weight: 700; border: 1px solid var(--border); text-align: center; }
         .btn-submit { width: 100%; padding: 24px; background: linear-gradient(90deg, var(--secondary), var(--primary)); border: none; border-radius: 20px; font-weight: 800; font-size: 1.2rem; cursor: pointer; color: #000; text-transform: uppercase; margin-top: 15px; }
         footer { text-align: center; font-size: 0.8rem; color: var(--text-dim); padding: 40px 0; border-top: 1px solid var(--border); margin-top: 30px; }
     </style>
@@ -56,10 +56,10 @@
 
             <section class="step-section">
                 <h3>01. IDENTIDAD LEGAL</h3>
-                <div class="group"><label>Nombre Completo</label><input type="text" name="Nombre" id="nom_est" required></div>
+                <div class="group"><label>Nombre Completo</label><input type="text" name="Nombre" required></div>
                 <div class="grid-2">
                     <div><label>Cédula</label><input type="text" name="Cedula" required></div>
-                    <div><label>Nacimiento</label><input type="date" name="Nacimiento" required></div>
+                    <div><label>Nacimiento (Toca el año para cambiar rápido)</label><input type="date" name="Nacimiento" required></div>
                 </div>
                 <div class="group"><label>Dirección / Universidad / Carrera / Correo / Teléfono</label><textarea name="Datos_Adicionales" required style="height: 100px;"></textarea></div>
                 <div style="border: 1px solid var(--accent); padding: 18px; border-radius: 14px; background: rgba(255, 0, 122, 0.05);"><label style="color: var(--accent);">Teléfono Familiar (Obligatorio)</label><input type="text" name="Contacto_Familiar" required></div>
@@ -67,56 +67,44 @@
 
             <section class="step-section">
                 <h3>02. DOCUMENTACIÓN Y CÁMARA</h3>
-                <div class="ux-instruction">
-                    Descarga los 5 documentos, <b>NO LLENES NADA, SOLO FIRMA</b>.<br><br>
-                    <b>👉 ESPICHA EL CORREO PARA ENVIAR TODO:</b><br>
-                    <a href="mailto:eatramites1@gmail.com" style="color: var(--primary); font-weight: 800; font-size: 1.2rem; text-decoration: underline;">eatramites1@gmail.com</a>
-                </div>
-
                 <div class="group">
-                    <label>📸 Foto Selfie (Fondo blanco, tipo carné)</label>
+                    <label>📸 Foto Selfie (Cámara frontal)</label>
                     <input type="file" name="Selfie" accept="image/*" capture="user" required>
                 </div>
                 <div class="group">
-                    <label>🪪 Foto de tu Cédula (Legible)</label>
+                    <label>🪪 Foto de tu Cédula (Cámara trasera)</label>
                     <input type="file" name="Foto_Cedula" accept="image/*" capture="environment" required>
                 </div>
 
                 <div style="margin-bottom: 25px;">
-                    <a href="Acta_Confidencialidad.docx" class="download-link">⬇️ 1. Acta de Confidencialidad</a>
-                    <a href="Acta_Matricula.docx" class="download-link">⬇️ 2. Acta de Matrícula</a>
-                    <a href="Contrato.docx" class="download-link">⬇️ 3. Contrato de Servicios</a>
-                    <a href="Asistencia.docx" class="download-link">⬇️ 4. Lista de Asistencia</a>
-                    <a href="Pagare.docx" class="download-link">⬇️ 5. Pagaré Institucional</a>
+                    <a href="Acta de confidencialidad para estudiantes doc..." class="download-link">⬇️ 1. Acta de Confidencialidad</a>
+                    <a href="Acta de matrícula Escuela Andina 2020..docx" class="download-link">⬇️ 2. Acta de Matrícula</a>
+                    <a href="CONTRATO PARA LA PRESTACION DE SERVICI..." class="download-link">⬇️ 3. Contrato de Servicios</a>
+                    <a href="Lista de asistencia a clases.docx" class="download-link">⬇️ 4. Lista de Asistencia</a>
+                    <a href="Pagaré escuela andina - campus 2026.docx" class="download-link">⬇️ 5. Pagaré Institucional</a>
+                </div>
+
+                <div class="important-note">
+                    ⚠️ EL PAGO ES LO MÁS IMPORTANTE. SI NO PUEDES FIRMAR AHORA, TIENES DE 3 A 5 DÍAS PARA ENVIARLOS.
                 </div>
             </section>
 
             <section class="step-section">
                 <h3>03. PAGO Y FINALIZAR</h3>
                 <div class="bank-info"><b>CAMPUSLA SAS:</b> Bancolombia Ahorros 26200005425</div>
-                <div class="bank-info"><b>AV VILLAS:</b> Corriente 421895249</div>
-                <div class="bank-info" style="border-color: var(--secondary);"><b>ESCUELA ANDINA:</b> Bancolombia Ahorros 26200002780</div>
                 <div class="grid-2" style="margin: 15px 0;">
                     <div class="btn-pay nequi">NEQUI: 3144365569</div>
                     <div class="btn-pay daviplata">DAVIPLATA: 3144365569</div>
                 </div>
                 <div class="group">
-                    <label>🧾 Adjuntar Comprobante de Pago</label>
-                    <input type="file" name="Comprobante_Pago" accept="image/*" capture="environment" required>
+                    <label>🧾 Adjuntar Comprobante de Pago (Pantallazo)</label>
+                    <input type="file" name="Comprobante_Pago" accept="image/*" required>
                 </div>
-                <button type="submit" class="btn-submit">FINALIZAR Y ENVIAR</button>
+                <button type="submit" class="btn-submit">FINALIZAR RADICACIÓN</button>
             </section>
         </form>
 
-        <footer><p>CAMPUSLA - De clase Mundial</p><p>ESCUELA ANDINA RES 210 DE 2020</p></footer>
+        <footer><p>CAMPUSLA - De clase Mundial</p></footer>
     </div>
-
-    <script>
-        document.getElementById('formFinal').onsubmit = function() {
-            // No hacemos nada con window.location.href mailto para evitar la fricción.
-            // FormSubmit se encarga de enviar y redirigir a la web de CampusLA.
-            return true; 
-        };
-    </script>
 </body>
 </html>
