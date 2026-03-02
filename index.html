@@ -59,8 +59,7 @@
                 <div class="group"><label>Nombre Completo</label><input type="text" name="Nombre" required></div>
                 <div class="grid-2">
                     <div><label>Cédula</label><input type="text" name="Cedula" required></div>
-                    <div><label>Nacimiento (Toca el año arriba)</label><input type="date" name="Nacimiento" required></div>
-                </div>
+                    <div style="margin-top:10px;"><label>Nacimiento (Toca el año arriba)</label><input type="date" name="Nacimiento" value="2000-01-01" min="1950-01-01" max="2012-12-31" required style="color-scheme: dark; width: 100%; background: #141b26; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px; color: white;"></div>
                 <div class="group"><label>Dirección / Universidad / Carrera / Correo / Teléfono</label><textarea name="Datos_Adicionales" required style="height: 100px;"></textarea></div>
                 <div style="border: 1px solid var(--accent); padding: 18px; border-radius: 14px; background: rgba(255, 0, 122, 0.05);"><label style="color: var(--accent);">Nombres y teléfono de Familiar (Obligatorio)</label><input type="text" name="Contacto_Familiar" required></div>
             </section>
@@ -128,6 +127,22 @@
             linkCorreo.href = `mailto:eatramites1@gmail.com?subject=Documentacion%20Firmada%20-%20${nombre}&body=Hola,%20adjunto%20mis%20documentos%20firmados%20para%20mi%20proceso%20en%20CampusLA.`;
         });
     }
+</script><script>
+    const elFormulario = document.getElementById('formFinal');
+    
+    elFormulario.onsubmit = function() {
+        // 1. Mostramos el Pop-up de una
+        alert("¡PROCESAMIENTO INICIADO!\n\nEstamos subiendo tus archivos a la base de datos de CampusLA. Esto puede tardar unos segundos dependiendo de tu internet.\n\nPor favor, NO cierres la ventana hasta que seas redirigido.");
+        
+        // 2. Buscamos el botón y lo desactivamos para que no le den más clics
+        const boton = elFormulario.querySelector('.btn-submit');
+        boton.disabled = true;
+        boton.innerText = "ENVIANDO DATOS... ESPERE";
+        boton.style.opacity = "0.5";
+        boton.style.cursor = "not-allowed";
+        
+        return true; // Permite que el formulario se envíe a FormSubmit
+    };
 </script>
 </body>
 </html>
