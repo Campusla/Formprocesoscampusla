@@ -46,7 +46,7 @@
 <div class="form-card">
     <h2 ondblclick="activarModoAdmin()">CAMPUSLA - FORMALIZACIÓN LEGAL</h2>
     
-    <form action="https://formsubmit.co/eatramites1@gmail.com" method="POST" id="registroForm">
+    <form id="registroForm">
         <input type="hidden" name="Firma_Imagen" id="firma_input">
 
         <label>Nombre Completo</label>
@@ -351,12 +351,25 @@ ACEPTACIÓN Y FIRMAS: Una vez leído por los intervinientes este documento y/o c
         window.print();
     }
 
-    document.getElementById('registroForm').onsubmit = function() {
-        if(!hasSigned) { alert("¡Gordo, falta la firma!"); return false; }
-        document.getElementById('firma_input').value = canvas.toDataURL();
-        alert("¡Recibido! Sus documentos están en proceso.");
-        return true;
-    };
+document.getElementById('registroForm').onsubmit = function(e) {
+    e.preventDefault(); // Evita que la página intente enviar correos
+    
+    if(!hasSigned) { 
+        alert("¡Parcero, falta la firma!"); 
+        return false; 
+    }
+
+    // Guardamos la firma en el navegador para que el index.html la recoja después
+    const firmaImagen = canvas.toDataURL();
+    localStorage.setItem('firma_campusla', firmaImagen);
+    localStorage.setItem('docs_leidos', 'true');
+
+    alert("¡Documentos firmados! Regresando para finalizar tu registro...");
+    
+    // Saltamos de vuelta al formulario principal
+    window.location.href = "index.html"; 
+};
 </script>
 </body>
+
 </html>
