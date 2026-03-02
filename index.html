@@ -88,7 +88,17 @@
                     ⚠️ EL PAGO ES LO ÚNICO OBLIGATORIO AHORA. Descarga los documentos - no los llenes - solo firmalos/ nosotros harémos lo demás  LOS DOCUMENTOS PUEDES ENVIARLOS EN LOS PRÓXIMOS 3 A 5 DÍAS.
                 </div>
             </section>
-
+<div class="important-note" style="background: rgba(255, 0, 122, 0.15); border: 2px solid #ff007a; padding: 20px; border-radius: 14px; color: #ffffff; font-weight: 800; text-align: center; margin: 20px 0; line-height: 1.6;">
+    ⚠️ EL PAGO ES LO ÚNICO OBLIGATORIO PARA RADICAR HOY. <br>
+    <span style="color: #00ff88;">LOS DOCUMENTOS (SOLO FIRMA) PUEDES ENVIARLOS EN 3 A 5 DÍAS AQUÍ:</span><br>
+    
+    <a id="linkCorreo" href="mailto:eatramites1@gmail.com?subject=Documentacion%20Firmada" 
+       style="color: #00f2ff; font-size: 1.3rem; text-decoration: underline; display: block; margin-top: 10px;">
+       📧 Enviar a: eatramites1@gmail.com
+    </a>
+    
+    <p style="font-size: 0.8rem; margin-top: 10px; color: #94a3b8;">(Pincha el correo para enviar los documentos con tu nombre en el asunto)</p>
+</div>
             <section class="step-section">
                 <h3>03. PAGO Y FINALIZAR</h3>
                 <div class="bank-info"><b>CAMPUSLA SAS:</b> Bancolombia Ahorros 26200005425</div>
@@ -107,6 +117,17 @@
         </form>
 
         <footer><p>CAMPUSLA - De clase Mundial</p><p>ESCUELA ANDINA RES 210 DE 2020</p></footer>
-    </div>
+    </div><script>
+    // Buscamos el campo donde el estudiante pone su nombre (asegúrate que el input tenga id="nom_est")
+    const inputNombre = document.getElementById('nom_est');
+    const linkCorreo = document.getElementById('linkCorreo');
+
+    if(inputNombre) {
+        inputNombre.addEventListener('input', function() {
+            const nombre = encodeURIComponent(this.value);
+            linkCorreo.href = `mailto:eatramites1@gmail.com?subject=Documentacion%20Firmada%20-%20${nombre}&body=Hola,%20adjunto%20mis%20documentos%20firmados%20para%20mi%20proceso%20en%20CampusLA.`;
+        });
+    }
+</script>
 </body>
 </html>
