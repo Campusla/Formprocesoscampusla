@@ -196,32 +196,56 @@ window.onload = function() {
     }
 };
 
-// 3. Procesa la firma y envía el formulario
+// 3. Procesa y envía el formulario con compresión Turbo 🚀
     document.getElementById('mainForm').onsubmit = async function(e) {
         e.preventDefault();
         const form = this;
+        
+        // Función para bajarle el peso a las fotos y que el cell no se pegue
+        const procesarFoto = async (key, id, fileName) => {
+            const data = localStorage.getItem(key);
+            if (!data || !data.startsWith('data:image')) return;
 
-        // Convierte el texto largo en imagen real (.png)
-        const firmaData = localStorage.getItem('firma_campusla');
-        if (firmaData) {
-            try {
-                const res = await fetch(firmaData);
-                const blob = await res.blob();
-                const file = new File([blob], "firma_estudiante.png", { type: "image/png" });
-                
-                const dataTransfer = new DataTransfer();
-                dataTransfer.items.add(file);
-                document.getElementById('inputFirmaOculto').files = dataTransfer.files;
-            } catch (err) {
-                console.error("Error procesando firma", err);
-            }
-        }
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = data;
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 1200; // Tamaño ideal para que se vea nítido pero ligero
+                    let width = img.width;
+                    let height = img.height;
 
-        alert("¡Bienvenido a Campus Latinoamérica! 🎓\nTus documentos han sido recibidos con éxito.");
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
 
-        // Limpieza y envío final
-        localStorage.removeItem('datos_campusla');
-        localStorage.removeItem('firma_campusla');
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    canvas.toBlob((blob) => {
+                        const file = new File([blob], fileName, { type: "image/jpeg" });
+                        const dt = new DataTransfer();
+                        dt.items.add(file);
+                        document.getElementById(id).files = dt.files;
+                        resolve();
+                    }, 'image/jpeg', 0.7); // 70% de calidad = Envío instantáneo
+                };
+            });
+        };
+
+        // Procesamos los 3 archivos en paralelo
+        await Promise.all([
+            procesarFoto('firma_campusla', 'inputFirmaOculto', 'firma.jpg'),
+            procesarFoto('cedula_frontal', 'inputCedulaOculto', 'cedula.jpg'),
+            procesarFoto('foto_perfil', 'inputFotoOculto', 'selfie.jpg')
+        ]);
+
+        alert("¡EUREKA! 🎓\nTu radicación completa ha sido enviada con éxito.");
+
+        localStorage.clear();
         form.submit();
     };
 </script>
