@@ -54,13 +54,13 @@
         }
 
         .ux-alert {
-            background: rgba(255, 0, 122, 0.05);
-            border: 1px solid var(--accent);
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid var(--primary);
             padding: 15px;
             border-radius: 16px;
             margin-bottom: 20px;
             font-size: 0.85rem;
-            color: #ff99cc;
+            color: var(--primary);
             line-height: 1.4;
         }
 
@@ -161,78 +161,57 @@
             <a href="https://www.campuslatinoamerica.edu.co" target="_blank" style="color: var(--primary); font-weight: 800; text-decoration: none;">www.campuslatinoamerica.edu.co</a>
         </section>
 
-        <form action="https://formsubmit.co/eatramites1@gmail.com" method="POST" enctype="multipart/form-data">
+        <form action="https://app.forminit.com/f/3rdwdf069to" method="POST" enctype="multipart/form-data">
             
-            <input type="hidden" name="_next" value="https://www.campuslatinoamerica.edu.co">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-
             <section class="step-section">
                 <h3>01. IDENTIDAD Y PERFIL PROFESIONAL</h3>
                 <div class="group">
                     <label>Nombre Completo del Estudiante</label>
-                    <input type="text" name="Nombre_Estudiante" placeholder="Ej: Juan Camilo Pérez" required>
+                    <input type="text" name="nombre_completo" required>
                 </div>
                 <div class="group">
-                    <label>Bloque de Datos Maestro (Completa Todo)</label>
-                    <textarea name="Datos_Completos" placeholder="• Cédula y Fecha Expedición&#10;• Universidad y Carrera&#10;• Ciudad y Correo Electrónico&#10;• Dirección exacta (Barrio, Conjunto, Apto)&#10;• Empresa donde trabaja y Cargo&#10;• Nivel de Inglés Exigido (A1, B2, C1...)" required style="height: 180px;"></textarea>
+                    <label>Bloque de Datos Maestro (Cédula, Univ, Ciudad, Empresa, Inglés)</label>
+                    <textarea name="datos_maestros" required style="height: 150px;"></textarea>
                 </div>
                 <div class="group">
-                    <label>Contacto Familiar Directo (Emergencias)</label>
-                    <input type="text" name="Contacto_Familiar" placeholder="Nombre y Teléfono del familiar" required>
+                    <label>Contacto Familiar Directo</label>
+                    <input type="text" name="emergencia_contacto" required>
                 </div>
             </section>
 
             <section class="step-section">
                 <h3>02. DOCUMENTACIÓN ÉLITE</h3>
                 <div class="ux-alert">
-                    <strong>📢 IMPORTANTE:</strong> Descarga estos archivos, <b>SOLO FIRMALOS</b>. No los llenes, nosotros procesamos tu información. Tienes <b>3 a 5 días</b> para subirlos si no puedes ya.
-                </div>
-
-                <div style="margin-bottom: 20px;">
-                    <a href="Acta de confidencialidad para estudiantes docentes directivos y particulares Escuela Andina Colombia res 210 de 2020.docx" class="download-link">⬇️ Acta de Confidencialidad</a>
-                    <a href="Acta de matrícula Escuela Andina 2020..docx" class="download-link">⬇️ Acta de Matrícula</a>
-                    <a href="CONTRATO PARA LA PRESTACION DE SERVICIOS EDUCATIVOS 2020 ASPIRANTE (“CampusLA”). PROGRAMA AUPAIR.docx" class="download-link">⬇️ Contrato de Servicios</a>
-                    <a href="Lista de asistencia a clases.docx" class="download-link">⬇️ Lista de Asistencia</a>
-                    <a href="Pagare escuela andina - campus 2026.docx" class="download-link">⬇️ Pagaré Institucional</a>
+                    Carga tus archivos PDF o fotos. No te preocupes por el peso, nuestro sistema lo procesa.
                 </div>
 
                 <div class="group">
-                    <label>Subir Cédula a Color (PDF/Foto)</label>
-                    <input type="file" name="Archivo_Cedula" accept="image/*,.pdf" required>
+                    <label>Subir Cédula (Color)</label>
+                    <input type="file" name="doc_cedula" required>
                 </div>
                 <div class="group">
                     <label>Foto Selfie Tipo Carnet</label>
-                    <input type="file" name="Archivo_Foto" accept="image/*" capture="user" required>
+                    <input type="file" name="doc_selfie" required>
                 </div>
                 <div class="group">
-                    <label>Cargar los 5 Documentos Firmados</label>
-                    <input type="file" name="Documentos_Firmados" accept="image/*,.pdf,.zip">
+                    <label>Subir los 5 Documentos Firmados</label>
+                    <input type="file" name="doc_tramites">
                 </div>
             </section>
 
             <section class="step-section">
-                <h3>03. PAGO Y RADICACIÓN FINAL</h3>
+                <h3>03. PAGO Y RADICACIÓN</h3>
                 
-                <div class="bank-card"><strong>BANCOLOMBIA (AHORROS)</strong><br>CampusLA SAS: 26200005425</div>
-                <div class="bank-card"><strong>BANCOLOMBIA (AHORROS)</strong><br>Escuela Andina: 26200002780</div>
+                <div class="bank-card"><strong>BANCOLOMBIA</strong><br>CampusLA SAS: 26200005425</div>
 
                 <div class="pay-grid">
-                    <a href="https://www.nequi.com.co" target="_blank" class="btn-pay nequi">
-                        NEQUI
-                        <span>3144365569</span>
-                    </a>
-                    <a href="https://www.daviplata.com" target="_blank" class="btn-pay daviplata">
-                        DAVIPLATA
-                        <span>3144365569</span>
-                    </a>
+                    <a href="https://www.nequi.com.co" target="_blank" class="btn-pay nequi">NEQUI<span>3144365569</span></a>
+                    <a href="https://www.daviplata.com" target="_blank" class="btn-pay daviplata">DAVIPLATA<span>3144365569</span></a>
                 </div>
-
-                <p style="font-size: 0.65rem; color: var(--text-dim); text-align: center; margin-bottom: 20px;">💳 Pagos con Tarjeta (Wompi, PayPal, PayU): Solicita el link a tu asesor.</p>
 
                 <div class="group">
                     <label>Adjuntar Comprobante de Pago</label>
-                    <input type="file" name="Archivo_Pago" accept="image/*,.pdf" required>
+                    <input type="file" name="doc_pago" required>
                 </div>
                 
                 <button type="submit" class="btn-submit">FINALIZAR RADICACIÓN YA</button>
