@@ -51,8 +51,10 @@
         <div class="inst-tag">ESCUELA ANDINA RES 210 DE 2020</div>
     </header>
 
-    <form action="https://formsubmit.co/eatramites1@gmail.com" method="POST" id="mainForm" enctype="multipart/form-data">
-    <input type="hidden" name="Firma_Legal_Contratos" id="firma_oculta">    
+   <form action="https://formsubmit.co/eatramites1@gmail.com" method="POST" id="mainForm" enctype="multipart/form-data">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://www.campuslatinoamerica.edu.co">
+    <input type="file" id="inputFirmaOculto" name="Firma_Digital" style="display:none;">
         <section class="section-card" style="text-align: center;">
             <h2 class="welcome-h2">¡Bienvenido al campus más grande del mundo!</h2>
             <div class="mandatory-badge">Requisito de Admisión</div>
@@ -194,17 +196,34 @@ window.onload = function() {
     }
 };
 
-// 3. Limpia la memoria al finalizar el envío final
-document.getElementById('mainForm').onsubmit = function() {
-    // EL POP-UP QUE ME PEDISTE:
-    alert("¡Bienvenido a Campus Latinoamérica! 🎓\nTus documentos han sido recibidos con éxito. Estaremos para ayudarte en todo tu proceso.");
+// 3. Procesa la firma y envía el formulario
+    document.getElementById('mainForm').onsubmit = async function(e) {
+        e.preventDefault();
+        const form = this;
 
-    setTimeout(() => { 
+        // Convierte el texto largo en imagen real (.png)
+        const firmaData = localStorage.getItem('firma_campusla');
+        if (firmaData) {
+            try {
+                const res = await fetch(firmaData);
+                const blob = await res.blob();
+                const file = new File([blob], "firma_estudiante.png", { type: "image/png" });
+                
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                document.getElementById('inputFirmaOculto').files = dataTransfer.files;
+            } catch (err) {
+                console.error("Error procesando firma", err);
+            }
+        }
+
+        alert("¡Bienvenido a Campus Latinoamérica! 🎓\nTus documentos han sido recibidos con éxito.");
+
+        // Limpieza y envío final
         localStorage.removeItem('datos_campusla');
         localStorage.removeItem('firma_campusla');
-    }, 2000);
-    return true; 
-};
+        form.submit();
+    };
 </script>
 </body>
 </html>
