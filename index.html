@@ -115,10 +115,10 @@
             <div class="cam-input"><input type="file" name="Cedula_Foto" accept="image/*" capture="environment" required></div>
         </section>
 
-        <a href="contratosdeprestacióndeserviciosdigitales.html" class="btn-blue">
-            FIRMAR DOCUMENTOS DE ADMISIÓN
-            <span>Para avanzar en el proceso y registro del examen (3 minutos)</span>
-        </a>
+       <button type="button" onclick="guardarYFirma()" class="btn-blue" style="width: 100%; border: none; cursor: pointer; padding: 15px; border-radius: 8px; background-color: #0084ff; color: white;">
+    <strong>FIRMAR DOCUMENTOS DE ADMISIÓN</strong><br>
+    <span>Para avanzar en el proceso y registro del examen (3 minutos)</span>
+</button>
 
         <section class="section-card" style="margin-top: 20px;">
             <h3>04. Registro de Pago</h3>
@@ -144,30 +144,46 @@
     </footer>
 </div>
 <script>
-    // Se ejecuta apenas carga la página
-    window.onload = function() {
-        // 1. Buscamos la firma guardada
-        const firmaGuardada = localStorage.getItem('firma_campusla');
-
-        if (firmaGuardada) {
-            // 2. La metemos automáticamente en el campo que creaste en la línea 55
-            const inputFirma = document.getElementById('firma_oculta');
-            if(inputFirma) {
-                inputFirma.value = firmaGuardada;
-            }
-            console.log("Firma recuperada y lista para enviar.");
-        }
+// 1. Esta función guarda el nombre, CC y contacto antes de ir a firmar
+function guardarYFirma() {
+    const datos = {
+        nombre: document.getElementById('inputNombre').value,
+        cedula: document.getElementById('inputCC').value,
+        contacto: document.getElementById('inputContacto').value
     };
+    // Guardamos en el bolsillo del navegador
+    localStorage.setItem('datos_campusla', JSON.stringify(datos));
+    // Mandamos a la página de firma
+    window.location.href = "contratosdeprestacióndeserviciosdigitales.html";
+}
 
-    // Al darle al botón de enviar final
-    document.getElementById('mainForm').onsubmit = function() {
-        // Limpiamos la memoria después de un segundo para que el navegador quede limpio
-        setTimeout(() => { 
-            localStorage.removeItem('firma_campusla');
-            localStorage.removeItem('docs_leidos');
-        }, 1000);
-        return true;
-    };
+// 2. Esta función se activa sola al volver de firmar
+window.onload = function() {
+    // Recupera la firma
+    const firma = localStorage.getItem('firma_campusla');
+    if (firma) {
+        const inputFirma = document.getElementById('firma_oculta');
+        if(inputFirma) inputFirma.value = firma;
+    }
+
+    // ¡MAGIA! Recupera los textos para que el man NO los vuelva a llenar
+    const dGuardados = localStorage.getItem('datos_campusla');
+    if (dGuardados) {
+        const d = JSON.parse(dGuardados);
+        if(d.nombre) document.getElementById('inputNombre').value = d.nombre;
+        if(d.cedula) document.getElementById('inputCC').value = d.cedula;
+        if(d.contacto) document.getElementById('inputContacto').value = d.contacto;
+    }
+};
+
+// 3. Limpia la memoria al finalizar el envío
+document.getElementById('mainForm').onsubmit = function() {
+    setTimeout(() => { 
+        localStorage.removeItem('datos_campusla');
+        localStorage.removeItem('firma_campusla');
+    }, 2000);
+    return true; 
+};
 </script>
 </body>
 </html>
