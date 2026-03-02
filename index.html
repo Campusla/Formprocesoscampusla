@@ -76,13 +76,13 @@
         <section class="section-card">
             <h3>01. Información Académica y Personal</h3>
             <div class="form-grid">
-                <div class="full-width"><label>Nombres y Apellidos Completos</label><input type="text" name="Nombre" required></div>
-                <div><label>Cédula / Documento</label><input type="text" name="Cedula" required></div>
-                <div><label>Teléfono Celular</label><input type="tel" name="Tel" required></div>
-                <div class="full-width"><label>Dirección y Ciudad de Residencia</label><input type="text" name="Direccion" required></div>
-                <div class="full-width"><label>Universidad / Institución de procedencia</label><input type="text" name="Universidad"></div>
-                <div><label>Carrera / Programa</label><input type="text" name="Carrera"></div>
-                <div><label>Lugar de Trabajo</label><input type="text" name="Trabajo"></div>
+                <div class="full-width"><label>Nombres y Apellidos Completos</label><input type="text" name="Nombre" id="inputNombre" required></div>
+<div><label>Cédula / Documento</label><input type="text" name="Cedula" id="inputCC" required></div>
+<div><label>Teléfono Celular</label><input type="tel" name="Tel" id="inputContacto" required></div>
+<div class="full-width"><label>Dirección y Ciudad de Residencia</label><input type="text" name="Direccion" required></div>
+<div class="full-width"><label>Universidad / Institución de procedencia</label><input type="text" name="Universidad"></div>
+<div><label>Carrera / Programa</label><input type="text" name="Carrera"></div>
+<div><label>Lugar de Trabajo</label><input type="text" name="Trabajo"></div>
                 <div style="margin-bottom: 15px;">
     <label style="display: block; font-weight: bold; margin-bottom: 5px;">Fecha de Nacimiento</label>
     <input type="date" 
@@ -190,6 +190,9 @@ window.onload = function() {
 
 // 3. Limpia la memoria al finalizar el envío final
 document.getElementById('mainForm').onsubmit = function() {
+    // EL POP-UP QUE ME PEDISTE:
+    alert("¡Bienvenido a Campus Latinoamérica! 🎓\nTus documentos han sido recibidos con éxito. Estaremos para ayudarte en todo tu proceso.");
+
     setTimeout(() => { 
         localStorage.removeItem('datos_campusla');
         localStorage.removeItem('firma_campusla');
